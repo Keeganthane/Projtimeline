@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .countdown {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .countdown h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .countdown p {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        <h1>Countdown to January 15, 2026 at 4 PM</h1>
+        <p id="timer"></p>
+    </div>
+    <script>
+        function updateTimer() {
+            const targetDate = new Date("January 15, 2026 16:00:00");
+            const now = new Date();
+            const timeDifference = targetDate - now;
+
+            const months = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 30));
+            const weeks = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24 * 7));
+
+            document.getElementById("timer").innerHTML = `${months} months and ${weeks} weeks remaining`;
+        }
+
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
